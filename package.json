@@ -1,0 +1,17 @@
+{
+  "name": "adapt-contrib-boxMenu",
+  "version": "10.0.0",
+  "framework": ">=5.8",
+  "homepage": "https://github.com/wtechsas/adapt-contrib-boxMenu",
+  "bugs": "https://github.com/wtechsas/adapt-contrib-boxMenu/issues",
+  "menu": "boxMenu",
+  "displayName": "Menú de caja",
+  "description": "Un menú principal integrado",
+  "main": "js/adapt-contrib-boxMenu.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-menu"
+  ],
+  "license": "GPL-3.0",
+  "targetAttribute": "_boxMenu"
+}

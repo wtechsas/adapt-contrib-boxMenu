@@ -1,0 +1,284 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/contentobject/model.schema",
+  "globals": {
+    "durationLabel": {
+      "type": "string",
+      "required": true,
+      "default": "Duración",
+      "title": "Duración",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    }
+  },
+  "properties": {
+    "pluginLocations": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "config": {
+          "type": "object"
+        },
+        "course": {
+          "type": "object",
+          "properties": {
+            "_boxMenu": {
+              "type": "object",
+              "required": false,
+              "properties": {
+                "_backgroundImage": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Imagen de fondo del menú",
+                  "properties": {
+                    "_large": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Grande",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Imagen de fondo grande: se usa en equipos de escritorio"
+                    },
+                    "_medium": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Mediana",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Imagen de fondo mediana: utilizada en dispositivos de tipo tabletas"
+                    },
+                    "_small": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Pequeña",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Imagen de fondo pequeña: utilizada en dispositivos móviles"
+                    }
+                  }
+                },
+               "_backgroundStyles": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Estilos de imagen para el fondo del menú",
+                  "properties": {
+                    "_backgroundRepeat": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {"type":"Select",
+                       "options":[
+                        {"val": "repeat", "label": "repetir imagen"},
+                        {"val": "repeat-x", "label": "repetir imagen horizontalmente"},
+                        {"val": "repeat-y", "label": "repetir imagen verticalmente"},
+                        {"val": "no-repeat", "label": "no repetir imagen"}
+                        ]},
+                      "title": "Establecer si/cómo se repite la imagen de fondo?",
+                      "help": "Repetir-x: la imagen de fondo se repite solo horizontalmente. Repetir-y: la imagen de fondo se repite solo verticalmente."
+                    },
+                    "_backgroundSize": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {"type":"Select",
+                       "options":[
+                        {"val": "auto", "label": "automático"},
+                        {"val": "cover", "label": "cubrir todo el contenedor"},
+                        {"val": "contain", "label": "ajustar para ver"},
+                        {"val": "100% 100%", "label": "completa"}
+                        ]},
+                      "title": "Establecer el tamaño de la imagen de fondo",
+                      "help": "automático: La imagen de fondo se muestra en su tamaño original. Cubrir todo el contenedor: Cambia el tamaño de la imagen de fondo para cubrir todo el contenedor, incluso si tiene que estirar o recortar la imagen. Ajustar para ver: Cambia el tamaño de la imagen de fondo para asegurarse de que la imagen sea completamente visible. Completa: Cambia el tamaño de la imagen de fondo para que coincida con las dimensiones del contenedor."
+                    },
+                    "_backgroundPosition": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {"type":"Select",
+                       "options":[
+                        {"val": "left top", "label": "izquierda y arriba"},
+                        {"val": "left center", "label": "izquierda y al centro"},
+                        {"val": "left bottom", "label": "izquierda del botón"},
+                        {"val": "center top", "label": "centro y arriba"},
+                        {"val": "center center", "label": "todo al centro"},
+                        {"val": "center bottom", "label": "centro del botón"},
+                        {"val": "right top", "label": "derecha y arriba"},
+                        {"val": "right center", "label": "derecha y al centro"},
+                        {"val": "right bottom", "label": "derecha del botón"}
+                        ]},
+                      "title": "Establecer la posición de la imagen de fondo",
+                      "help": "El primer valor es la posición horizontal y el segundo valor es la vertical."
+                    }
+                  }
+                },
+                "_menuHeader": {
+                  "type": "object",
+                  "required": false,
+                  "properties": {
+                    "_backgroundImage": {
+                      "type": "object",
+                      "required": false,
+                      "legend": "Imagen de fondo del encabezado del menú",
+                      "properties": {
+                        "_large": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "title": "Grande",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Imagen de fondo grande: se usa en equipos de escritorio"
+                        },
+                        "_medium": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "title": "Mediana",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Imagen de fondo mediana: utilizada en dispositivos de tipo tabletas"
+                        },
+                        "_small": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "title": "Pequeña",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Imagen de fondo pequeña: utilizada en dispositivos móviles"
+                        }
+                      }
+                    },
+                    "_backgroundStyles": {
+                      "type": "object",
+                      "required": false,
+                      "legend": "Estilos de imagen de fondo del encabezado del menú",
+                      "properties": {
+                        "_backgroundRepeat": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": {"type":"Select",
+                           "options":[
+                            {"val": "repeat", "label": "repetir imagen"},
+                            {"val": "repeat-x", "label": "repetir imagen horizontalmente"},
+                            {"val": "repeat-y", "label": "repetir imagen verticalmente"},
+                            {"val": "no-repeat", "label": "no repetir imagen"}
+                            ]},
+                          "title": "Establecer si/cómo se repite la imagen de fondo",
+                          "help": "Repeat-x: La imagen de fondo se repite solo horizontalmente. Repeat-y: La imagen de fondo se repite solo verticalmente."
+                        },
+                        "_backgroundSize": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": {"type":"Select",
+                           "options":[
+                            {"val": "auto", "label": "automático"},
+                            {"val": "cover", "label": "cubrir todo el contenedor"},
+                            {"val": "contain", "label": "ajustar para ver"},
+                            {"val": "100% 100%", "label": "completa"}
+                            ]},
+                          "title": "Establecer el tamaño de la imagen de fondo",
+                          "help": "Auto: La imagen de fondo se muestra en su tamaño original. Cover: Cambia el tamaño de la imagen de fondo para cubrir todo el contenedor, incluso si tiene que estirar o recortar la imagen. Contain: Cambia el tamaño de la imagen de fondo para asegurarse de que la imagen sea completamente visible. 100% 100%: Cambia el tamaño de la imagen de fondo para que coincida con las dimensiones del contenedor."
+                        },
+                        "_backgroundPosition": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": {"type":"Select",
+                           "options":[
+                            {"val": "left top", "label": "izquierda y arriba"},
+                            {"val": "left center", "label": "izquierda y al centro"},
+                            {"val": "left bottom", "label": "izquierda del botón"},
+                            {"val": "center top", "label": "centro y arriba"},
+                            {"val": "center center", "label": "todo al centro"},
+                            {"val": "center bottom", "label": "centro del botón"},
+                            {"val": "right top", "label": "derecha y arriba"},
+                            {"val": "right center", "label": "derecha y al centro"},
+                            {"val": "right bottom", "label": "derecha del botón"}
+                            ]},
+                          "title": "Establecer la posición de la imagen de fondo",
+                          "help": "El primer valor es la posición horizontal y el segundo valor es la vertical.."
+                        }
+                      }
+                    },
+                    "_minimumHeights": {
+                      "type": "object",
+                      "required": false,
+                      "legend": "Altura mínima del encabezado del menú",
+                      "properties": {
+                        "_large": {
+                          "type": "number",
+                          "required": false,
+                          "default": "",
+                          "title": "Grande",
+                          "inputType": "Number",
+                          "validators": ["number"],
+                          "help": "La altura mínima solo debe usarse en casos en los que la altura del encabezado del menú debe ser mayor que el contenido, p. para evitar que se recorte una imagen de fondo"
+                        },
+                        "_medium": {
+                          "type": "number",
+                          "required": false,
+                          "default": "",
+                          "title": "Mediano",
+                          "inputType": "Number",
+                          "validators": ["number"],
+                          "help": "La altura mínima solo debe usarse en casos en los que la altura del encabezado del menú debe ser mayor que el contenido, p. para evitar que se recorte una imagen de fondo"
+                        },
+                        "_small": {
+                          "type": "number",
+                          "required": false,
+                          "default": "",
+                          "title": "Pequeña",
+                          "inputType": "Number",
+                          "validators": ["number"],
+                          "help": "La altura mínima solo debe usarse en casos en los que la altura del encabezado del menú debe ser mayor que el contenido, p. para evitar que se recorte una imagen de fondo"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "contentobject": {
+          "type": "object",
+          "properties": {
+            "_boxMenu": {
+              "type": "object",
+              "required": false,
+              "properties": {
+                "_renderAsGroup": {
+                  "type": "boolean",
+                  "required": false,
+                  "default": false,
+                  "title": "¿Habilitar como menú de grupo?",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "Activar esta opción muestra los items dentro del menú de grupo. Los Grupos pueden mostrar un titúlo, contenido y texto de instrucciones"
+                }
+              }
+            }
+          }
+        },
+        "article": {
+          "type": "object"
+        },
+        "block": {
+          "type": "object"
+        },
+        "component": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}
