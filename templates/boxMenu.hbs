@@ -7,7 +7,7 @@
     <div class="menu__header-inner boxmenu__header-inner">
 
       {{#if displayTitle}}
-      <div class="menu__title boxmenu__title">
+      <div class="menu__title boxmenu__title" tabindex="0">
 
         {{#unless _disableAccessibleState}}
         <div class="js-heading"></div>
@@ -22,7 +22,7 @@
 
       {{#if subtitle}}
       <div class="menu__subtitle boxmenu__subtitle">
-        <div class="menu__subtitle-inner boxmenu__subtitle-inner">
+        <div class="menu__subtitle-inner boxmenu__subtitle-inner" tabindex="0">
           {{{compile subtitle}}}
         </div>
       </div>
@@ -30,7 +30,7 @@
 
       {{#if body}}
       <div class="menu__body boxmenu__body">
-        <div class="menu__body-inner boxmenu__body-inner">
+        <div class="menu__body-inner boxmenu__body-inner" tabindex="0">
           {{{compile body}}}
         </div>
       </div>
@@ -38,7 +38,7 @@
 
       {{#if instruction}}
       <div class="menu__instruction boxmenu__instruction">
-        <div class="menu__instruction-inner boxmenu__instruction-inner">
+        <div class="menu__instruction-inner boxmenu__instruction-inner" tabindex="0">
           {{{compile instruction}}}
         </div>
       </div>

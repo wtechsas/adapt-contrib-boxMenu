@@ -1,6 +1,6 @@
 {{import_globals}}
 
-<div class="menu-item__inner boxmenu-item__inner">
+<div class="menu-item__inner boxmenu-item__inner" tabindex="0">
 
   {{#if _graphic.src}}
   <div class="menu-item__image-container boxmenu-item__image-container">
@@ -15,7 +15,7 @@
       <div class="menu-item__title boxmenu-item__title">
         <div class="js-heading" data-a11y-heading-type="menuItem"></div>
 
-        <div class="menu-item__title-inner boxmenu-item__title-inner" aria-hidden="true">
+        <div class="menu-item__title-inner boxmenu-item__title-inner" tabindex="0" aria-hidden="true">
           {{{compile displayTitle}}}
         </div>
       </div>
@@ -25,21 +25,21 @@
 
       {{#if body}}
       <div class="menu-item__body boxmenu-item__body">
-        <div class="menu-item__body-inner boxmenu-item__body-inner">
+        <div class="menu-item__body-inner boxmenu-item__body-inner" tabindex="0">
           {{{compile body}}}
         </div>
       </div>
       {{/if}}
 
       {{#if duration}}
-      <div class="menu-item__duration boxmenu-item__duration">
+      <div class="menu-item__duration boxmenu-item__duration" tabindex="0">
         <div class="menu-item__duration-inner boxmenu-item__duration-inner">
           {{#if _globals._menu._boxMenu.durationLabel}}{{{_globals._menu._boxMenu.durationLabel}}}{{/if}} {{{duration}}}
         </div>
       </div>
       {{/if}}
 
-      <div class="menu-item__progress boxmenu-item__progress js-menu-item-progress">
+      <div class="menu-item__progress boxmenu-item__progress js-menu-item-progress" tabindex="0">
         {{!-- Menu item progress bar will render in here --}}
       </div>
 
