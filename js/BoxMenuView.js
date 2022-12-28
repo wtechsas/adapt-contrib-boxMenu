@@ -4,7 +4,6 @@ import BoxMenuItemView from './BoxMenuItemView';
 import BoxMenuGroupView from './BoxMenuGroupView';
 
 class BoxMenuView extends MenuView {
-
   className() {
     return `${super.className()} boxmenu`;
   }
@@ -12,7 +11,6 @@ class BoxMenuView extends MenuView {
   initialize() {
     super.initialize();
     this.setStyles();
-
     this.listenTo(Adapt, 'device:changed', this.onDeviceResize);
   }
 
@@ -24,7 +22,13 @@ class BoxMenuView extends MenuView {
     let nthChild = 0;
     const models = this.model.getChildren().models;
     const childViews = [];
-    models.forEach(model => {
+    models.forEach((model) => {
+      model.attributes._isGamificacion = true;
+      model.set(
+        '_isGamificacion',
+        this.model.get('typeCourse') == 'Gamificación' || false
+      );
+
       if (!model.get('_isAvailable')) return;
 
       if (model.get('_isHidden')) {
@@ -35,9 +39,12 @@ class BoxMenuView extends MenuView {
       nthChild++;
       model.set('_nthChild', nthChild);
 
-      const ChildView = (model.get('_type') === 'menu' && model.get('_boxMenu') && model.get('_boxMenu')._renderAsGroup) ?
-        BoxMenuGroupView :
-        BoxMenuItemView;
+      const ChildView =
+        model.get('_type') === 'menu' &&
+        model.get('_boxMenu') &&
+        model.get('_boxMenu')._renderAsGroup
+          ? BoxMenuGroupView
+          : BoxMenuItemView;
 
       const $parentContainer = this.$(this.constructor.childContainer);
       const childView = new ChildView({ model });
@@ -60,10 +67,15 @@ class BoxMenuView extends MenuView {
     const config = this.model.get('_boxMenu');
     const backgroundImages = config?._backgroundImage;
     if (!backgroundImages) return;
-    const backgroundImage = backgroundImages[`_${Adapt.device.screenSize}`] ?? backgroundImages._small;
+    const backgroundImage =
+      backgroundImages[`_${Adapt.device.screenSize}`] ??
+      backgroundImages._small;
     this.$el
       .toggleClass('has-bg-image', Boolean(backgroundImage))
-      .css('background-image', backgroundImage ? 'url(' + backgroundImage + ')' : '');
+      .css(
+        'background-image',
+        backgroundImage ? 'url(' + backgroundImage + ')' : ''
+      );
   }
 
   setBackgroundStyles() {
@@ -73,7 +85,7 @@ class BoxMenuView extends MenuView {
     this.$el.css({
       'background-repeat': styles._backgroundRepeat,
       'background-size': styles._backgroundSize,
-      'background-position': styles._backgroundPosition
+      'background-position': styles._backgroundPosition,
     });
   }
 
@@ -93,10 +105,15 @@ class BoxMenuView extends MenuView {
   setHeaderBackgroundImage(config, $header) {
     const backgroundImages = config._backgroundImage;
     if (!backgroundImages) return;
-    const backgroundImage = backgroundImages[`_${Adapt.device.screenSize}`] ?? backgroundImages._small;
+    const backgroundImage =
+      backgroundImages[`_${Adapt.device.screenSize}`] ??
+      backgroundImages._small;
     $header
       .toggleClass('has-bg-image', Boolean(backgroundImage))
-      .css('background-image', backgroundImage ? 'url(' + backgroundImage + ')' : '');
+      .css(
+        'background-image',
+        backgroundImage ? 'url(' + backgroundImage + ')' : ''
+      );
   }
 
   setHeaderBackgroundStyles(config, $header) {
@@ -107,19 +124,19 @@ class BoxMenuView extends MenuView {
     $header.css({
       'background-repeat': styles._backgroundRepeat,
       'background-size': styles._backgroundSize,
-      'background-position': styles._backgroundPosition
+      'background-position': styles._backgroundPosition,
     });
   }
 
   setHeaderMinimumHeight(config, $header) {
     const minimumHeights = config._minimumHeights;
     if (!minimumHeights) return;
-    const minimumHeight = minimumHeights[`_${Adapt.device.screenSize}`] ?? minimumHeights._small;
+    const minimumHeight =
+      minimumHeights[`_${Adapt.device.screenSize}`] ?? minimumHeights._small;
     $header
       .toggleClass('has-min-height', Boolean(minimumHeight))
       .css('min-height', minimumHeight ? minimumHeight + 'px' : '');
   }
-
 }
 
 BoxMenuView.template = 'boxMenu';
